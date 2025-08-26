@@ -18,8 +18,7 @@ Feature: Crear Token y guardarlo en archivo
     Then status 200
     * def token = response.token
 
-    # Guardar token en un archivo JSON dentro de target
     * def fs = Java.type('java.nio.file.Files')
     * def Paths = Java.type('java.nio.file.Paths')
     * def content = '{ "token": "' + token + '" }'
-    * fs.write(Paths.get('target/token.json'), content.getBytes())
+    * fs.write(Paths.get('target/files/token.json'), content.getBytes())

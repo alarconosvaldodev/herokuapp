@@ -24,6 +24,11 @@ Feature: Ejercicio 2 - Crear Bookings
     And match response.booking.firstname == "Pedro"
     * def bookingId1 = response.bookingid
 
+    * def fs = Java.type('java.nio.file.Files')
+    * def Paths = Java.type('java.nio.file.Paths')
+    * def content = '{ "bookingId1": "' + bookingId1 + '" }'
+    * fs.write(Paths.get('target/files/booking1.json'), content.getBytes())
+
     # ---- Booking 2 ----
   Scenario: Crear booking dos
     Given path 'booking'
@@ -42,3 +47,8 @@ Feature: Ejercicio 2 - Crear Bookings
     Then status 200
     And match response.booking.firstname == "Javier"
     * def bookingId2 = response.bookingid
+
+    * def fs = Java.type('java.nio.file.Files')
+    * def Paths = Java.type('java.nio.file.Paths')
+    * def content = '{ "bookingId2": "' + bookingId2 + '" }'
+    * fs.write(Paths.get('target/files/booking2.json'), content.getBytes())
